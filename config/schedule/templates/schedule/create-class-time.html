@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Doc</title>
+	<link rel="stylesheet" href="{% static 'js/flatpickr/node_modules/flatpickr/dist/flatpickr.css' %}">
+	<link rel="stylesheet" href="">
+</head>
+<body>
+
+	<form method="post">
+		{% csrf_token %}
+
+		<hr>
+		{{ form.as_p }}
+		<hr>
+
+
+
+		<button type="submit">Save</button>
+	</form>
+	
+
+	<script src="{% static 'js/flatpickr/node_modules/flatpickr/dist/flatpickr.js' %}"></script>
+	<script>
+			flatpickr('input[class=time_class]', {
+						enableTime: true,
+						noCalendar: true,
+						dateFormat: "H:i",
+						time_24hr: true
+					});
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

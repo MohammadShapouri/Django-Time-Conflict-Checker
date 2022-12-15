@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Doc</title>
+	<link rel="stylesheet" href="{% static 'js/flatpickr/node_modules/flatpickr/dist/flatpickr.css' %}">
+	<link rel="stylesheet" href="">
+</head>
+<body>
+
+	<div>
+		{% for object in object_list %}
+
+			<hr>
+			{{ object.class_name }} <br>
+			{{ object.class_time|time:"H:i" }} <br><br>
+				{% if object.class_day.all %}
+					{% for day in object.class_day.all %}
+						{{ day }} <br>
+					{% endfor %}
+				{% endif %}<br>
+			{{ object.get_even_odd_weeks_display }} <br>
+			{{ object.professor_name }} <br>
+			{{ object.exam_time|time:"H:i" }} <br>
+			{{ object.exam_day }} <br>
+			<hr>
+
+		{% endfor %}
+
+	</div>
+	
+
+</body>
+</html>
+
+
+
+
+
+
+
+
